@@ -1,0 +1,36 @@
+package ee.geir.webshop.controller;
+
+import ee.geir.webshop.entity.Category;
+import ee.geir.webshop.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class CategoryController {
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @GetMapping("categories")
+    public List<Category> getCategories() {
+        return categoryRepository.findAll();
+    }
+
+    @PostMapping("categories")
+    public List<Category> addCategory(@RequestBody Category category) {
+        if (category.getId() != null) {
+            throw new RuntimeException("Cannot add category with this id");
+        }
+        categoryRepository.save(category);
+        return categoryRepository.findAll();
+    }
+
+    @DeleteMapping("categories/{id}")
+    public List<Category> deleteCategory(@PathVariable Long id) {
+        categoryRepository.deleteById(id);
+        return categoryRepository.findAll();
+    }
+
+}
