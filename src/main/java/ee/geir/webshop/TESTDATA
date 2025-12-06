@@ -1,0 +1,21 @@
+
+
+http://localhost:8099/signup
+
+{
+    "firstName": "Mark",
+    "lastName": "Markson",
+    "email": "markson@email.com",
+    "password": "passu",
+    "personalCode": "39711225781",
+    "phone": "+372123123123",
+    "address": {
+        "city": "Tallinn",
+        "state": "Harjumaa",
+        "country": "Estonia",
+        "zipcode": "12345",
+        "street": "Tammsaare tee",
+        "number": "89",
+        "complement": "A"
+    }
+}

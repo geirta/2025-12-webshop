@@ -73,6 +73,12 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.vladislavgoltjajev/java-personal-code -->
+        <dependency>
+            <groupId>com.github.vladislavgoltjajev</groupId>
+            <artifactId>java-personal-code</artifactId>
+            <version>1.6</version>
+        </dependency>
 	</dependencies>
 
 	<build>

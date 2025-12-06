@@ -11,8 +11,8 @@ public class WebshopApplication {
 	}
 
     // 1. 02.12 - Spring algus: andmebasaide yhendamine, controller, entity, repository
-    // 2. 04.12 - korralikud veateated, tabelite omavaheline yhendamine
-    // 3. 09.12 - rendipood, @Service
+    // 2. 04.12 - korralikud veateated, tabelite omavaheline yhendamine, @Service, validations
+    // 3. 09.12 - rendipood, DTO
     // 4. 11.12 - unit testid
     // 5. 16.12 - front-end
     // 6. 18.12 - front-end
