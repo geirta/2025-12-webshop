@@ -6,6 +6,8 @@ import ee.geir.webshop.util.Validations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PersonService {
 
@@ -22,11 +24,11 @@ public class PersonService {
         if (!Validations.validateEmail(person.getEmail())) {
             throw new RuntimeException("Email is not valid");
         }
-        Person dbPerson = personRepository.findByEmailIgnoreCase(person.getEmail());
-        if (dbPerson != null) {
+        Optional<Person> dbPerson = personRepository.findByEmailIgnoreCase(person.getEmail());
+        if (dbPerson.isPresent()) {
             throw new RuntimeException("Email is already in use");
         }
-        if (person.getPassword() == null) {
+        if (person.getPassword() == null || person.getPassword().isBlank()) {
             throw new RuntimeException("Cannot sign up without password");
         }
         if (person.getPersonalCode() != null && !Validations.validatePersonalCode(person.getPersonalCode())) {

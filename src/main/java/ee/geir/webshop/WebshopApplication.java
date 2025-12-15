@@ -28,4 +28,5 @@ public class WebshopApplication {
     //16.N 29.01 - 13.00
     //17.E 02.02 - 13.00
     //18 lõpuprojekti päev
+
 }
