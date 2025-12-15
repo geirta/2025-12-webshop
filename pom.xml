@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ee.geir</groupId>
-	<artifactId>webshop</artifactId>
+	<artifactId>2025-12-webshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webshop</name>
 	<description>Webshop project</description>
