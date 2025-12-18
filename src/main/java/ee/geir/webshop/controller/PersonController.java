@@ -1,5 +1,6 @@
 package ee.geir.webshop.controller;
 
+import ee.geir.webshop.dto.PersonUpdateDto;
 import ee.geir.webshop.entity.Person;
 import ee.geir.webshop.repository.PersonRepository;
 import ee.geir.webshop.service.PersonService;
@@ -32,6 +33,11 @@ public class PersonController {
     public Person signup(@RequestBody Person person) {
         personService.validate(person);
         return personRepository.save(person);
+    }
+
+    @PatchMapping("persons/{id}")
+    public Person updatePerson(@PathVariable Long id, @RequestBody PersonUpdateDto dto) {
+        return personService.updatePerson(id, dto);
     }
 
 }

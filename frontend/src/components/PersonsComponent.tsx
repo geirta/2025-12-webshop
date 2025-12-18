@@ -14,7 +14,7 @@ const PersonsComponent = () => {
             .then(json => setPersons(json))
     }, []);
 
-    function viewPerson(id) {
+    function viewPerson(id: number) {
         navigator(`/persons/${id}`);
     }
 
@@ -22,7 +22,6 @@ const PersonsComponent = () => {
         <div className='container'>
 
             <h2 className='text-center'>List of Persons</h2>
-            <button className='btn btn-primary mb-2'>Add Person</button>
             <table className='table table-hover table-bordered'>
                 <thead className='table-success'>
                     <tr>

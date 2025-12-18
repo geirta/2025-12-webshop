@@ -1,5 +1,6 @@
 package ee.geir.webshop.service;
 
+import ee.geir.webshop.dto.PersonUpdateDto;
 import ee.geir.webshop.entity.Person;
 import ee.geir.webshop.repository.PersonRepository;
 import ee.geir.webshop.util.Validations;
@@ -13,6 +14,17 @@ public class PersonService {
 
     @Autowired
     private PersonRepository personRepository;
+
+    public Person updatePerson(Long id, PersonUpdateDto dto) {
+        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person not found"));
+        if (dto.getFirstName() != null) person.setFirstName(dto.getFirstName());
+        if (dto.getLastName() != null) person.setLastName(dto.getLastName());
+        if (dto.getEmail() != null) person.setEmail(dto.getEmail());
+        if (dto.getPersonalCode() != null) person.setPersonalCode(dto.getPersonalCode());
+        if (dto.getPhone() != null) person.setPhone(dto.getPhone());
+
+        return personRepository.save(person);
+    }
 
     public void validate(Person person) {
         if (person.getId() != null) {
