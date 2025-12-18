@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react'
 import type { Person } from '../models/Person'
 import { useParams } from 'react-router-dom';
 
-const PersonComponent = () => {
+const backendUrl = import.meta.env.VITE_API_HOST;
+
+const PersonDetails = () => {
 
     const {id} = useParams(); // gets id from Url
     const [person, setPerson] = useState<Person|null>(null);
@@ -24,7 +26,7 @@ const PersonComponent = () => {
     const handleSave = (e: React.FormEvent) => {
         e.preventDefault();
 
-        fetch(`http://localhost:8099/persons/${id}`, {
+        fetch(`${backendUrl}/persons/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -55,7 +57,7 @@ const PersonComponent = () => {
 
    useEffect(() => {
         if (!id) return;
-        fetch(`http://localhost:8099/persons/${id}`)
+        fetch(`${backendUrl}/persons/${id}`)
             .then(res => res.json())
             .then(json => {
                 setPerson(json);
@@ -161,4 +163,4 @@ const PersonComponent = () => {
     )
 }
 
-export default PersonComponent
+export default PersonDetails

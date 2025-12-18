@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import type { Product } from '../models/Product'
 
 const ListProductsComponent = () => {
@@ -25,6 +25,7 @@ const ListProductsComponent = () => {
                         <th>Stock</th>
                         <th>Active</th>
                         <th>Category</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,7 @@ const ListProductsComponent = () => {
                                 <td>{product.stock}</td>
                                 <td>{product.active.toString()}</td>
                                 <td>{product.category.name}</td>
+                                <td><button className="btn btn-warning">Add to cart</button></td>
                             </tr>)
                     }
                 </tbody>

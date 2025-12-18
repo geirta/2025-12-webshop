@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import type { Person } from '../models/Person'
 import { useNavigate } from 'react-router-dom'
 
-const PersonsComponent = () => {
+const backendUrl = import.meta.env.VITE_API_HOST;
+
+const Persons = () => {
 
     const [persons, setPersons] = useState<Person[]>([])
-
     const navigator = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:8099/persons")
+        fetch(`${backendUrl}/persons`)
             .then(res => res.json())
             .then(json => setPersons(json))
     }, []);
@@ -51,4 +52,4 @@ const PersonsComponent = () => {
     )
 }
 
-export default PersonsComponent
+export default Persons

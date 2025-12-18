@@ -1,29 +1,37 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import FooterComponent from './components/FooterComponent'
-import HeaderComponent from './components/HeaderComponent'
-import PersonsComponent from './components/PersonsComponent'
-import ListProductsComponent from './components/ListProductsComponent'
-import HomeComponent from './components/HomeComponent'
-import PersonDetailsComponent from './components/PersonDetailsComponent'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Home from './pages/Home'
+import PersonDetails from './pages/PersonDetails'
+import Products from './pages/Products'
+import Persons from './pages/Persons'
 
 function App() {
 
+  // Rendipood:
+  // - erinevad lehed (route-mine)
+  // - tõlge
+  // - darkmode/lightmode + localStorage
+  // - https://fonts.google.com/
+  // - MUI/Tailwind/Bootstrap
+  // - soovi korral kümnevõistlus
+  // - https://www.npmjs.com/package/react-toastify
+  // - https://react-hot-toast.com/
 
   return (
     <>
-      <BrowserRouter>
-        <HeaderComponent />
-          <Routes>
-            <Route path='/' element={<HomeComponent/>}></Route>
-            <Route path='/products' element={<ListProductsComponent/>}></Route>
-            <Route path='/persons' element={<PersonsComponent/>}></Route>
-            <Route path='/persons/:id' element={<PersonDetailsComponent/>}></Route>
-          </Routes>
-          
-        <FooterComponent />
-      </BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/products' element={<Products/>}></Route>
+          <Route path='/persons' element={<Persons/>}></Route>
+          <Route path='/persons/:id' element={<PersonDetails/>}></Route>
+        </Routes>
+
+        <Footer />
     </>
   )
 }
