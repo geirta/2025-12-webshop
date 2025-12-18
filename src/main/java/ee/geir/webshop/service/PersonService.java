@@ -38,7 +38,7 @@ public class PersonService {
                 && person.getAddress().getZipcode() != null
                 && !Validations.validateZipcode(person.getAddress().getZipcode())
         ) {
-            throw new RuntimeException("Address code is not valid");
+            throw new RuntimeException("Address zip code is not valid");
         }
     }
 

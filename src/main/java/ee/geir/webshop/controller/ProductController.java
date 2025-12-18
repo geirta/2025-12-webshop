@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
     @Autowired
@@ -27,12 +28,6 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-//    @DeleteMapping("products")
-//    public List<Product> deleteProduct(@RequestParam Long id) {
-//        productRepository.deleteById(id);
-//        return productRepository.findAll();
-//    }
-
     @DeleteMapping("products/{id}")
     public List<Product> deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
@@ -49,7 +44,6 @@ public class ProductController {
     //               -->  kui m6ni on nullable ehk pole vajalik saata
 
     // @PathVariable on selgem --> t2pselt 1 muutuja, mis on alati vajalik
-
 
 
     @PutMapping("products")

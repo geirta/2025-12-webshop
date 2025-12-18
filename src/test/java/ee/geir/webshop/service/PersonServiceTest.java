@@ -31,26 +31,6 @@ class PersonServiceTest {
 
     // given_when_then
 
-//  PERSON
-//    private Long id;
-//    private String firstName;
-//    private String lastName;
-//    private String email;
-//    private String password;
-//    private String personalCode;
-//    private String phone;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Address address;
-
-//  ADDRESS
-//    private Long id;
-//    private String city;
-//    private String state;
-//    private String country;
-//    private String zipcode;
-//    private String street;
-//    private String number;
-//    private String complement;
 
     // TEST: CANT ADD A NEW PERSON WITH ID
     @Test
@@ -119,7 +99,7 @@ class PersonServiceTest {
                 "55512312", address);
 
         String msg = assertThrows(RuntimeException.class, () -> personService.validate(person)).getMessage();
-        assertEquals("Address code is not valid", msg);
+        assertEquals("Address zip code is not valid", msg);
     }
 
 
