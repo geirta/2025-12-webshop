@@ -16,6 +16,11 @@ public class ProductController {
 
     @GetMapping("products")
     public List<Product> getProducts() {
+        return productRepository.findByActiveTrueOrderByIdAsc();
+    }
+
+    @GetMapping("admin-products")
+    public List<Product> getAdminProducts() {
         return productRepository.findAll();
     }
 

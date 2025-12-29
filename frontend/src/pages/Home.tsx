@@ -1,10 +1,9 @@
+import React from 'react'
 
-const HomeComponent = () => {
+function Home() {
   return (
-    <>
-      tere
-    </>
+    <div>Tere</div>
   )
 }
 
-export default HomeComponent
+export default Home

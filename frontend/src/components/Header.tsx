@@ -3,14 +3,27 @@ import { Link } from "react-router-dom";
 // HTMLi: Link, Route, Routes
 
 import { useTranslation } from 'react-i18next';
+import { useContext } from "react";
+import { CartSumContext } from "../context/CartSumContext";
+import { AuthContext } from "../context/AuthContext";
+import { useAppSelector } from "../store/store";
 
 
 const Header = () => {
     const { t, i18n } = useTranslation();
+    const {sum} = useContext(CartSumContext);
+    const {isLoggedIn} = useContext(AuthContext);
+    const {setLoggedIn} = useContext(AuthContext);
+    const count = useAppSelector(state => state.counter.value)
 
     function updateLanguage(newLang: string) {
         i18n.changeLanguage(newLang);
         localStorage.setItem("language", newLang);
+    }
+
+    function logOut() {
+        sessionStorage.removeItem("login");
+        setLoggedIn(false);
     }
 
     return (
@@ -30,10 +43,43 @@ const Header = () => {
                                 <li className='nav-item'>
                                     <Link className='nav-link' to="/persons">{t('header.persons')}</Link>
                                 </li>
+                                <li className='nav-item'>
+                                    <Link className='nav-link' to="/admin">Admin</Link>
+                                </li>
                             </ul>
                         </div>
-                        <button className="btn btn-secondary" onClick={() => updateLanguage("et")}>ET</button>
-                        <button className="btn btn-success" onClick={() => updateLanguage("en")}>EN</button>
+
+                        <div className='collapse navbar-collapse' id="navbarNav">
+                            <ul className='navbar-nav'>
+                                <li className="nav-item">
+                                    <Link className='nav-link' to="/cart">[Cart {sum.toFixed(2)}€ / {count} pcs]</Link>
+                                </li>
+                                {isLoggedIn && (
+                                <>
+                                    <li className="nav-item">
+                                        <Link className='nav-link' to="/my-orders">My orders</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link onClick={logOut} className='nav-link' to="/">Logout</Link>
+                                    </li>
+                                </>
+                                )}
+                                {!isLoggedIn && (
+                                <>
+                                    <li className="nav-item">
+                                        <Link className='nav-link' to="/login">Login</Link>
+                                    </li>
+                                </>
+                                )}
+                                <li className='nav-item'>
+                                    <button className="btn btn-secondary" onClick={() => updateLanguage("et")}>ET</button>
+                                </li>
+                                <li className='nav-item'>
+                                    <button className="btn btn-success" onClick={() => updateLanguage("en")}>EN</button>
+                                </li>
+                                
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </header>

@@ -1,6 +1,6 @@
 {
     "header": {
-    "products": "Products",
-    "persons": "Persons"
+        "products": "Products",
+        "persons": "Persons"
     }
 }

@@ -75,7 +75,6 @@ const PersonDetails = () => {
 
     return (
         <div className='container'>
-    
             <form onSubmit={handleSave}>
                 <div className='container'>
                     <div className='row'>

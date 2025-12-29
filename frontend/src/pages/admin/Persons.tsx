@@ -40,8 +40,8 @@ const Persons = () => {
                             <tr key={person.id} onClick={() => viewPerson(person.id)}>
                                 <td>{person.id}</td>
                                 <td>{person.firstName}</td>
-                                <td>{person.email}</td>
                                 <td>{person.lastName}</td>
+                                <td>{person.email}</td>
                                 <td>{person.personalCode}</td>
                                 <td>{person.phone}</td>
                             </tr>)

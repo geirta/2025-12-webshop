@@ -1,0 +1,5 @@
+
+button:disabled { 
+  border: none;
+  cursor: default;
+}

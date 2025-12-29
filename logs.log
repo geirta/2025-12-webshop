@@ -1,18 +1,18 @@
-2025-12-18T10:42:57.995+02:00  INFO 21028 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 21028 (C:\Users\i9\Documents\GitHub\backend-12-2025\target\classes started by i9 in C:\Users\i9\Documents\GitHub\backend-12-2025)
-2025-12-18T10:42:58.005+02:00  INFO 21028 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-12-18T10:42:58.713+02:00  INFO 21028 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-18T10:42:58.785+02:00  INFO 21028 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
-2025-12-18T10:42:59.207+02:00  INFO 21028 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
-2025-12-18T10:42:59.220+02:00  INFO 21028 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-18T10:42:59.220+02:00  INFO 21028 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2025-12-18T10:42:59.274+02:00  INFO 21028 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1216 ms
-2025-12-18T10:42:59.443+02:00  INFO 21028 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-18T10:42:59.486+02:00  INFO 21028 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
-2025-12-18T10:42:59.873+02:00  INFO 21028 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-18T10:42:59.903+02:00  INFO 21028 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-18T10:43:00.063+02:00  INFO 21028 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1bbb42b4
-2025-12-18T10:43:00.065+02:00  INFO 21028 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-18T10:43:00.156+02:00  INFO 21028 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-12-29T13:04:40.791+02:00  INFO 19884 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 19884 (C:\Users\i9\Documents\GitHub\2025-12-webshop\target\classes started by i9 in C:\Users\i9\Documents\GitHub\2025-12-webshop)
+2025-12-29T13:04:40.796+02:00  INFO 19884 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T13:04:41.288+02:00  INFO 19884 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-29T13:04:41.351+02:00  INFO 19884 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
+2025-12-29T13:04:41.755+02:00  INFO 19884 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
+2025-12-29T13:04:41.771+02:00  INFO 19884 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T13:04:41.771+02:00  INFO 19884 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-29T13:04:41.818+02:00  INFO 19884 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 990 ms
+2025-12-29T13:04:42.016+02:00  INFO 19884 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-29T13:04:42.072+02:00  INFO 19884 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2025-12-29T13:04:42.459+02:00  INFO 19884 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-29T13:04:42.498+02:00  INFO 19884 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-29T13:04:42.776+02:00  INFO 19884 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@39a3984c
+2025-12-29T13:04:42.777+02:00  INFO 19884 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-29T13:04:42.832+02:00  INFO 19884 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/veebipood]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -24,35 +24,35 @@
 	Pool: DatasourceConnectionProviderImpl
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-18T10:43:00.933+02:00  INFO 21028 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-18T10:43:01.048+02:00  INFO 21028 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T10:43:01.154+02:00  INFO 21028 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-18T10:43:01.359+02:00  WARN 21028 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-18T10:43:01.662+02:00  INFO 21028 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
-2025-12-18T10:43:01.668+02:00  INFO 21028 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 4.107 seconds (process running for 4.532)
-2025-12-18T10:43:06.677+02:00  INFO 21028 --- [webshop] [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-18T10:43:06.677+02:00  INFO 21028 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-12-18T10:43:06.680+02:00  INFO 21028 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-12-18T12:52:01.235+02:00  INFO 21028 --- [webshop] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2025-12-18T12:52:01.245+02:00  INFO 21028 --- [webshop] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2025-12-18T12:52:01.252+02:00  INFO 21028 --- [webshop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T12:52:01.260+02:00  INFO 21028 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-18T12:52:01.263+02:00  INFO 21028 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-12-18T12:52:07.974+02:00  INFO 49404 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 49404 (C:\Users\i9\Documents\GitHub\backend-12-2025\target\classes started by i9 in C:\Users\i9\Documents\GitHub\backend-12-2025)
-2025-12-18T12:52:07.977+02:00  INFO 49404 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-12-18T12:52:08.574+02:00  INFO 49404 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-18T12:52:08.639+02:00  INFO 49404 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
-2025-12-18T12:52:09.116+02:00  INFO 49404 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
-2025-12-18T12:52:09.129+02:00  INFO 49404 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-18T12:52:09.130+02:00  INFO 49404 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2025-12-18T12:52:09.180+02:00  INFO 49404 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1162 ms
-2025-12-18T12:52:09.344+02:00  INFO 49404 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-18T12:52:09.383+02:00  INFO 49404 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
-2025-12-18T12:52:09.796+02:00  INFO 49404 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-18T12:52:09.842+02:00  INFO 49404 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-18T12:52:10.092+02:00  INFO 49404 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8f4b803
-2025-12-18T12:52:10.093+02:00  INFO 49404 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-18T12:52:10.149+02:00  INFO 49404 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-12-29T13:04:43.637+02:00  INFO 19884 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-29T13:04:43.737+02:00  INFO 19884 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29T13:04:43.824+02:00  INFO 19884 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-29T13:04:44.025+02:00  WARN 19884 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-29T13:04:44.311+02:00  INFO 19884 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
+2025-12-29T13:04:44.318+02:00  INFO 19884 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 3.881 seconds (process running for 7.418)
+2025-12-29T13:07:53.339+02:00  INFO 19884 --- [webshop] [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T13:07:53.340+02:00  INFO 19884 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T13:07:53.342+02:00  INFO 19884 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-29T15:39:51.469+02:00  INFO 19884 --- [webshop] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T15:39:51.473+02:00  INFO 19884 --- [webshop] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2025-12-29T15:39:51.475+02:00  INFO 19884 --- [webshop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29T15:39:51.477+02:00  INFO 19884 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-29T15:39:51.478+02:00  INFO 19884 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-29T15:39:54.235+02:00  INFO 35228 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 35228 (C:\Users\i9\Documents\GitHub\2025-12-webshop\target\classes started by i9 in C:\Users\i9\Documents\GitHub\2025-12-webshop)
+2025-12-29T15:39:54.238+02:00  INFO 35228 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T15:39:54.784+02:00  INFO 35228 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-29T15:39:54.842+02:00  INFO 35228 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 4 JPA repository interfaces.
+2025-12-29T15:39:55.250+02:00  INFO 35228 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
+2025-12-29T15:39:55.262+02:00  INFO 35228 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T15:39:55.262+02:00  INFO 35228 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-29T15:39:55.312+02:00  INFO 35228 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1033 ms
+2025-12-29T15:39:55.468+02:00  INFO 35228 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-29T15:39:55.506+02:00  INFO 35228 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2025-12-29T15:39:55.890+02:00  INFO 35228 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-29T15:39:55.930+02:00  INFO 35228 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-29T15:39:56.084+02:00  INFO 35228 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@603d25db
+2025-12-29T15:39:56.086+02:00  INFO 35228 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-29T15:39:56.162+02:00  INFO 35228 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/veebipood]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -64,97 +64,12 @@
 	Pool: DatasourceConnectionProviderImpl
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-18T12:52:10.912+02:00  INFO 49404 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-18T12:52:11.016+02:00  INFO 49404 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T12:52:11.111+02:00  INFO 49404 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-18T12:52:11.302+02:00  WARN 49404 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-18T12:52:11.592+02:00  INFO 49404 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
-2025-12-18T12:52:11.596+02:00  INFO 49404 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 4.136 seconds (process running for 5.351)
-2025-12-18T12:52:12.309+02:00  INFO 49404 --- [webshop] [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-18T12:52:12.309+02:00  INFO 49404 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-12-18T12:52:12.310+02:00  INFO 49404 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-12-18T13:09:05.056+02:00  INFO 49404 --- [webshop] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2025-12-18T13:09:05.063+02:00  INFO 49404 --- [webshop] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2025-12-18T13:09:05.066+02:00  INFO 49404 --- [webshop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T13:09:05.069+02:00  INFO 49404 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-18T13:09:05.072+02:00  INFO 49404 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-12-18T13:11:58.166+02:00  INFO 40392 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 40392 (C:\Users\i9\Documents\GitHub\backend-12-2025\target\classes started by i9 in C:\Users\i9\Documents\GitHub\backend-12-2025)
-2025-12-18T13:11:58.170+02:00  INFO 40392 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-12-18T13:11:58.988+02:00  INFO 40392 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-18T13:11:59.074+02:00  INFO 40392 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
-2025-12-18T13:11:59.710+02:00  INFO 40392 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
-2025-12-18T13:11:59.732+02:00  INFO 40392 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-18T13:11:59.733+02:00  INFO 40392 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2025-12-18T13:11:59.783+02:00  INFO 40392 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1557 ms
-2025-12-18T13:11:59.991+02:00  INFO 40392 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-18T13:12:00.045+02:00  INFO 40392 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
-2025-12-18T13:12:00.507+02:00  INFO 40392 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-18T13:12:00.552+02:00  INFO 40392 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-18T13:12:00.863+02:00  INFO 40392 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8f4b803
-2025-12-18T13:12:00.865+02:00  INFO 40392 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-18T13:12:00.948+02:00  INFO 40392 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/veebipood]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.1
-	Default catalog/schema: veebipood/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DatasourceConnectionProviderImpl
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-12-18T13:12:02.112+02:00  INFO 40392 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-18T13:12:02.222+02:00  INFO 40392 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T13:12:02.320+02:00  INFO 40392 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-18T13:12:02.562+02:00  WARN 40392 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-18T13:12:02.962+02:00  INFO 40392 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
-2025-12-18T13:12:02.972+02:00  INFO 40392 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 5.356 seconds (process running for 5.899)
-2025-12-18T13:12:21.407+02:00  INFO 40392 --- [webshop] [http-nio-8099-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-18T13:12:21.408+02:00  INFO 40392 --- [webshop] [http-nio-8099-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-12-18T13:12:21.411+02:00  INFO 40392 --- [webshop] [http-nio-8099-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-12-18T14:03:45.243+02:00  INFO 40392 --- [webshop] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2025-12-18T14:03:45.249+02:00  INFO 40392 --- [webshop] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2025-12-18T14:03:45.251+02:00  INFO 40392 --- [webshop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T14:03:45.254+02:00  INFO 40392 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-18T14:03:45.256+02:00  INFO 40392 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-12-18T14:03:49.288+02:00  INFO 40524 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Starting WebshopApplication using Java 21.0.9 with PID 40524 (C:\Users\i9\Documents\GitHub\backend-12-2025\target\classes started by i9 in C:\Users\i9\Documents\GitHub\backend-12-2025)
-2025-12-18T14:03:49.292+02:00  INFO 40524 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-12-18T14:03:50.201+02:00  INFO 40524 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-18T14:03:50.275+02:00  INFO 40524 --- [webshop] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 4 JPA repository interfaces.
-2025-12-18T14:03:50.864+02:00  INFO 40524 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
-2025-12-18T14:03:50.884+02:00  INFO 40524 --- [webshop] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-18T14:03:50.884+02:00  INFO 40524 --- [webshop] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2025-12-18T14:03:50.936+02:00  INFO 40524 --- [webshop] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1576 ms
-2025-12-18T14:03:51.158+02:00  INFO 40524 --- [webshop] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-18T14:03:51.202+02:00  INFO 40524 --- [webshop] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
-2025-12-18T14:03:51.672+02:00  INFO 40524 --- [webshop] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-18T14:03:51.715+02:00  INFO 40524 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-18T14:03:51.929+02:00  INFO 40524 --- [webshop] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ab1ad9
-2025-12-18T14:03:51.932+02:00  INFO 40524 --- [webshop] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-18T14:03:52.012+02:00  INFO 40524 --- [webshop] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/veebipood]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.1
-	Default catalog/schema: veebipood/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DatasourceConnectionProviderImpl
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-12-18T14:03:53.178+02:00  INFO 40524 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-18T14:03:53.304+02:00  INFO 40524 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T14:03:53.433+02:00  INFO 40524 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-18T14:03:53.663+02:00  WARN 40524 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-18T14:03:54.010+02:00  INFO 40524 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
-2025-12-18T14:03:54.017+02:00  INFO 40524 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 5.444 seconds (process running for 5.977)
-2025-12-18T14:03:57.388+02:00  INFO 40524 --- [webshop] [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-18T14:03:57.389+02:00  INFO 40524 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-12-18T14:03:57.390+02:00  INFO 40524 --- [webshop] [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-12-18T16:17:02.901+02:00  INFO 40524 --- [webshop] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2025-12-18T16:17:02.909+02:00  INFO 40524 --- [webshop] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2025-12-18T16:17:02.914+02:00  INFO 40524 --- [webshop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-12-18T16:17:02.921+02:00  INFO 40524 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-18T16:17:02.923+02:00  INFO 40524 --- [webshop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-29T15:39:56.890+02:00  INFO 35228 --- [webshop] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-29T15:39:57.004+02:00  INFO 35228 --- [webshop] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29T15:39:57.097+02:00  INFO 35228 --- [webshop] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-29T15:39:57.302+02:00  WARN 35228 --- [webshop] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-29T15:39:57.591+02:00  INFO 35228 --- [webshop] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8099 (http) with context path '/'
+2025-12-29T15:39:57.595+02:00  INFO 35228 --- [webshop] [main] ee.geir.webshop.WebshopApplication       : Started WebshopApplication in 3.806 seconds (process running for 4.159)
+2025-12-29T15:43:05.937+02:00  INFO 35228 --- [webshop] [http-nio-8099-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T15:43:05.937+02:00  INFO 35228 --- [webshop] [http-nio-8099-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T15:43:05.939+02:00  INFO 35228 --- [webshop] [http-nio-8099-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
