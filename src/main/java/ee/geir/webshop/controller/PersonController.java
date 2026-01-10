@@ -1,9 +1,11 @@
 package ee.geir.webshop.controller;
 
+import ee.geir.webshop.dto.PersonPublicDto;
 import ee.geir.webshop.dto.PersonUpdateDto;
 import ee.geir.webshop.entity.Person;
 import ee.geir.webshop.repository.PersonRepository;
 import ee.geir.webshop.service.PersonService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +21,29 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @Autowired
+    private ModelMapper mapper;
+
     @GetMapping("persons")
     public List<Person> getPersons() {
         return personRepository.findAll();
+    }
+
+    @GetMapping("persons-public")
+    public List<PersonPublicDto> getPersonsPublic() {
+//        List<Person> personFromDb = personRepository.findAll();
+//        List<PersonPublicDto> personsDto = new ArrayList<>();
+//        for (Person person : personFromDb) {
+//            PersonPublicDto personPublicDto = new PersonPublicDto();
+//            personPublicDto.setFirstName(person.getFirstName());
+//            personPublicDto.setLastName(person.getLastName());
+//            personsDto.add(personPublicDto);
+//        }
+//        return personsDto;
+
+        // ülevaloleva teeb ModelMapper lihtsamalt ära -->
+
+        return List.of(mapper.map(personRepository.findAll(), PersonPublicDto[].class));
     }
 
     @GetMapping("persons/{id}")

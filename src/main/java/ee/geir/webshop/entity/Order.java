@@ -24,8 +24,8 @@ public class Order {
     @ManyToOne
     private Person person;
 
-    @ManyToMany
-    private List<Product> products; // List<OrderRow>
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderRow> orderRows; // List<OrderRow>
 
 
     // Product

@@ -3,6 +3,8 @@ package ee.geir.webshop.controller;
 import ee.geir.webshop.entity.Product;
 import ee.geir.webshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +16,13 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+
+    // muutsin List -> Page
+    //BASE URL      endpoint
+    // localhost:8099/products?page=0&size=20&sort=id,asc
     @GetMapping("products")
-    public List<Product> getProducts() {
-        return productRepository.findByActiveTrueOrderByIdAsc();
+    public Page<Product> getProducts(Pageable pageable) {
+        return productRepository.findByActiveTrue(pageable);
     }
 
     @GetMapping("admin-products")

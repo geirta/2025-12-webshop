@@ -9,9 +9,9 @@ function ProductManage() {
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
-      fetch(`${backendUrl}/admin-products`)
-          .then(res => res.json())
-          .then(json => setProducts(json))
+    fetch(`${backendUrl}/admin-products`)
+      .then(res => res.json())
+      .then(json => setProducts(json))
   }, []);
 
   return (

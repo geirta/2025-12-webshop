@@ -4,6 +4,8 @@ import { CartSumContext } from '../context/CartSumContext';
 import { decrement, increment, decrementByAmount, reset } from '../store/counterSlice'
 import { useAppDispatch } from '../store/store';
 
+const backendUrl = import.meta.env.VITE_API_HOST;
+
 function Cart() {
 
   const [cartProducts, setCartProducts] = useState<CartProduct[]>(JSON.parse(localStorage.getItem("cart") || "[]"));
@@ -62,6 +64,18 @@ function Cart() {
     return sum;
   }
 
+  function order() {
+    fetch(`${backendUrl}/orders?personId=1`, {
+      method: "POST",
+      body: JSON.stringify(cartProducts),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(json => alert("Tellimus nr-ga " + json.id + " edastatud"))
+  }
+
   return (
     <div>
       {cartProducts.length > 0 ?
@@ -80,6 +94,7 @@ function Cart() {
         )}
 
         <div>Kogusumma: {calculateCartSum().toFixed(2)}</div>
+        <button onClick={order}>Telli</button>
       </> : 
       <>
         <div>Ostukorv on tühi</div>

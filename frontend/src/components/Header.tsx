@@ -52,7 +52,7 @@ const Header = () => {
                         <div className='collapse navbar-collapse' id="navbarNav">
                             <ul className='navbar-nav'>
                                 <li className="nav-item">
-                                    <Link className='nav-link' to="/cart">[Cart {sum.toFixed(2)}€ / {count} pcs]</Link>
+                                    <Link className='nav-link' to="/cart">[Cart {sum.toFixed(2)}€ / {count.toFixed(0)} pcs]</Link>
                                 </li>
                                 {isLoggedIn && (
                                 <>
