@@ -9,9 +9,7 @@ const backendUrl = import.meta.env.VITE_API_HOST;
 function Cart() {
 
   const [cartProducts, setCartProducts] = useState<CartProduct[]>(JSON.parse(localStorage.getItem("cart") || "[]"));
-  const {increaseSum} = useContext(CartSumContext);
-  const {decreaseSum} = useContext(CartSumContext);
-  const {resetSum} = useContext(CartSumContext);
+  const {increaseSum, decreaseSum, resetSum} = useContext(CartSumContext);
   const dispatch = useAppDispatch();
 
   function deleteFromCart(index: number) {
@@ -73,8 +71,16 @@ function Cart() {
       }
     })
       .then(res => res.json())
-      .then(json => alert("Tellimus nr-ga " + json.id + " edastatud"))
+      .then(json => window.location.href = json.link)
   }
+  // URLi muutmiseks:
+  // HTML
+  // Reacti siseselt: <Link to="/ostukorv">
+  // Reacit v2liselt: <a href="instagram.com/username">
+
+  // JavaScript
+  // Reacti siseselt: useNavigate navigate("/admin")
+  // Reacti v2liselt: window.location.href = "https://everypay.com"
 
   return (
     <div>

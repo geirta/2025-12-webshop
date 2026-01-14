@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
-    Optional<Person> findByEmailIgnoreCase(String email);
+    Person findByEmailIgnoreCase(String email);
 }

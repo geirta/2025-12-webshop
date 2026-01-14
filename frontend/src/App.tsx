@@ -19,6 +19,7 @@ import ProductEdit from './pages/admin/ProductEdit'
 import ProductManage from './pages/admin/ProductManage'
 import AdminHome from './pages/admin/AdminHome'
 import NotFound from './pages/NotFound'
+import CheckPayment from './pages/CheckPayment'
 
 function App() {
 
@@ -43,6 +44,8 @@ function App() {
           <Route path='/products' element={<Products/>}></Route>
           <Route path='/product/:product_id' element={<ProductDetails />}></Route>
           <Route path='/persons/:id' element={<PersonDetails/>}></Route>
+          <Route path='/payment' element={<CheckPayment/>}></Route>
+
           <Route path='/persons' element={<Persons/>}></Route>
 
           <Route path='/admin' element={<AdminHome />}></Route>

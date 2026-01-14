@@ -1,13 +1,7 @@
 package ee.geir.webshop.service;
 
-import ee.geir.webshop.entity.Order;
-import ee.geir.webshop.entity.OrderRow;
-import ee.geir.webshop.entity.Person;
-import ee.geir.webshop.entity.Product;
-import ee.geir.webshop.model.EveryPayBody;
-import ee.geir.webshop.model.EveryPayResponse;
-import ee.geir.webshop.model.ParcelMachine;
-import ee.geir.webshop.model.PaymentLink;
+import ee.geir.webshop.entity.*;
+import ee.geir.webshop.model.*;
 import ee.geir.webshop.repository.OrderRepository;
 import ee.geir.webshop.repository.PersonRepository;
 import ee.geir.webshop.repository.ProductRepository;
@@ -55,6 +49,8 @@ public class OrderService {
         return getPaymentLink(order.getId(), order.getTotal());
     }
 
+    // ?order_reference=mn3124ffdau14&payment_reference=23c984e66fa5e9435858f362f3921313f355f6ad7293358cb42df47efe1988f3
+    // ?order_reference=mn3124ffdau15&payment_reference=81ee5d101733544e24c20697ca5954e57961baccb8aa24da3b8929eda79a4a11
     private PaymentLink getPaymentLink(Long id, double total) {
         String url = "https://igw-demo.every-pay.com/api/v4/payments/oneoff";
 
@@ -93,6 +89,37 @@ public class OrderService {
             sum += dbProduct.getPrice() * orderRow.getQuantity();
         }
         order.setTotal(sum);
+        order.setPaymentStatus(PaymentStatus.initial);
         return orderRepository.save(order);
+    }
+
+    // SETTLED:
+    // "https://igw-demo.every-pay.com/api/v4/payments/23c984e66fa5e9435858f362f3921313f355f6ad7293358cb42df47efe1988f3?api_username=e36eb40f5ec87fa2&detailed=false";
+    // FAILED:
+    // "https://igw-demo.every-pay.com/api/v4/payments/81ee5d101733544e24c20697ca5954e57961baccb8aa24da3b8929eda79a4a11?api_username=e36eb40f5ec87fa2&detailed=false";
+    public OrderPaid checkPayment(String orderReference, String paymentReference) {
+        String url = "https://igw-demo.every-pay.com/api/v4/payments/" + paymentReference
+                + "?api_username=e36eb40f5ec87fa2&detailed=false";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBasicAuth("e36eb40f5ec87fa2", "7b91a3b9e1b74524c2e9fc282f8ac8cd");
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity entity = new HttpEntity(null, headers);
+
+        EveryPayCheck response = restTemplate.exchange(url, HttpMethod.GET, entity, EveryPayCheck.class).getBody();
+        if (response == null) {
+            throw new RuntimeException("Couldn't get every-pay response");
+        }
+        if (!response.getOrder_reference().equals(orderReference)) {
+            throw new RuntimeException("Order reference does not match");
+        }
+        Order order = orderRepository.findById(Long.valueOf(orderReference.replace("mn3124ffdau", ""))).orElseThrow();
+        order.setPaymentStatus(PaymentStatus.valueOf(response.getPayment_state()));
+        orderRepository.save(order);
+
+        OrderPaid orderPaid = new OrderPaid();
+        orderPaid.setPaid(response.getPayment_state().equals("settled"));
+        return orderPaid;
     }
 }

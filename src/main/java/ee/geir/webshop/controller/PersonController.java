@@ -1,9 +1,12 @@
 package ee.geir.webshop.controller;
 
+import ee.geir.webshop.dto.PersonLoginDto;
 import ee.geir.webshop.dto.PersonPublicDto;
 import ee.geir.webshop.dto.PersonUpdateDto;
 import ee.geir.webshop.entity.Person;
+import ee.geir.webshop.model.AuthToken;
 import ee.geir.webshop.repository.PersonRepository;
+import ee.geir.webshop.security.JwtService;
 import ee.geir.webshop.service.PersonService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,9 @@ public class PersonController {
 
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private JwtService jwtService;
 
     @GetMapping("persons")
     public List<Person> getPersons() {
@@ -55,6 +61,19 @@ public class PersonController {
     public Person signup(@RequestBody Person person) {
         personService.validate(person);
         return personRepository.save(person);
+    }
+
+    @PostMapping("login")
+    public AuthToken login(@RequestBody PersonLoginDto personLoginDto) {
+        Person dbPerson = personRepository.findByEmailIgnoreCase(personLoginDto.getEmail());
+        if (dbPerson == null) {
+            throw new RuntimeException("Email not found");
+        }
+        if (!dbPerson.getPassword().equals(personLoginDto.getPassword())) {
+            throw new RuntimeException("Password not correct");
+        }
+
+        return jwtService.getToken(dbPerson);
     }
 
     @PatchMapping("persons/{id}")

@@ -4,6 +4,7 @@ import ee.geir.webshop.entity.Order;
 import ee.geir.webshop.entity.OrderRow;
 import ee.geir.webshop.entity.Person;
 import ee.geir.webshop.entity.Product;
+import ee.geir.webshop.model.OrderPaid;
 import ee.geir.webshop.model.ParcelMachine;
 import ee.geir.webshop.model.PaymentLink;
 import ee.geir.webshop.model.Supplier3Response;
@@ -40,6 +41,11 @@ public class OrderController {
     @GetMapping("parcelmachines")
     public List<ParcelMachine> getParcelMachines(@RequestParam String country) {
         return orderService.getParcelMachines(country);
+    }
+
+    @GetMapping("check-payment")
+    public OrderPaid checkPayment(@RequestParam String orderReference, String paymentReference) {
+        return orderService.checkPayment(orderReference, paymentReference);
     }
 
 }

@@ -13,7 +13,7 @@ const Products = () => {
     const {increaseSum} = useContext(CartSumContext);
     const dispatch = useAppDispatch();
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(2);
+    const [size, setSize] = useState(4);
     const [sort, setSort] = useState("id,asc");
     const [totalElements, setTotalElements] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
@@ -36,6 +36,7 @@ const Products = () => {
         } else {
             cart.push({product: productClicked, quantity: 1});
         }
+        console.log(cartProducts);
         localStorage.setItem("cart", JSON.stringify(cart));
         increaseSum(productClicked.price);
         dispatch(increment());

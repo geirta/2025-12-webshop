@@ -30,7 +30,7 @@ export const counterSlice = createSlice({
 function calculateCartAmount() {
   const cart: CartProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
   let sum = 0;
-  cart.forEach(cp => sum += cp.product.price * cp.quantity);
+  cart.forEach(cp => sum += cp.quantity);
   return sum;
 }
 

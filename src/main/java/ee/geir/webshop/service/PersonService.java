@@ -36,10 +36,10 @@ public class PersonService {
         if (!Validations.validateEmail(person.getEmail())) {
             throw new RuntimeException("Email is not valid");
         }
-        Optional<Person> dbPerson = personRepository.findByEmailIgnoreCase(person.getEmail());
-        if (dbPerson.isPresent()) {
-            throw new RuntimeException("Email is already in use");
-        }
+        Person dbPerson = personRepository.findByEmailIgnoreCase(person.getEmail());
+//        if (dbPerson.isPresent()) {
+//            throw new RuntimeException("Email is already in use");
+//        }
         if (person.getPassword() == null || person.getPassword().isBlank()) {
             throw new RuntimeException("Cannot sign up without password");
         }
