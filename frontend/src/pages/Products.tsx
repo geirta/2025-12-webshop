@@ -13,7 +13,7 @@ const Products = () => {
     const {increaseSum} = useContext(CartSumContext);
     const dispatch = useAppDispatch();
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(4);
+    const [size, setSize] = useState(6);
     const [sort, setSort] = useState("id,asc");
     const [totalElements, setTotalElements] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
@@ -90,7 +90,6 @@ const Products = () => {
             <button onClick={() => updateSort("price,asc")}>Hind kasvavalt</button>
             <button onClick={() => updateSort("price,desc")}>Hind kahanevalt</button>
 
-            <button className='btn btn-primary mb-2'>Add Product</button>
             <table className='table table-striped table-bordered'>
                 <thead className='table-success'>
                     <tr>
@@ -117,7 +116,7 @@ const Products = () => {
                                 <td><button onClick={() => addToCart(product)} className="btn btn-warning">Add to cart</button></td>
                                 <td>
                                     <Link to={`/product/${product.id}`}>
-                                        <button>Vt l2hemalt</button>
+                                        <button className='btn btn-dark'>Vt l2hemalt</button>
                                     </Link>
                                 </td>
                             </tr>)

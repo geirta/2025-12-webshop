@@ -1,5 +1,6 @@
 package ee.geir.webshop.dto;
 
+import ee.geir.webshop.entity.Address;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,4 +12,5 @@ public class PersonUpdateDto {
     private String email;
     private String personalCode;
     private String phone;
+    private Address address;
 }

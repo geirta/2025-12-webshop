@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { Product } from "../../models/Product";
 import type { Category } from "../../models/Category";
+import { useFetch } from "../../hooks/useFetch";
 
 const backendUrl = import.meta.env.VITE_API_HOST;
 
@@ -9,13 +10,15 @@ function ProductEdit() {
   // <Route path='/product/:product_id' element={<ProductDetails />}></Route>
   const {product_id} = useParams();
   const [product, setProduct] = useState<Product>();
-  const [categories, setCategories] = useState<Category[]>([]);
+  // const [categories, setCategories] = useState<Category[]>([]);
 
-  useEffect(() => {
-      fetch(`${backendUrl}/categories`)
-          .then(res => res.json())
-          .then(json => setCategories(json))
-  }, []);
+  // useEffect(() => {
+  //     fetch(`${backendUrl}/categories`)
+  //         .then(res => res.json())
+  //         .then(json => setCategories(json))
+  // }, []);
+
+  const categories = useFetch<Category>({endpoint: "categories"});
 
   useEffect(() => {
       fetch(`${backendUrl}/products/${product_id}`)

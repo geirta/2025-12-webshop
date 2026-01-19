@@ -3,6 +3,7 @@ import type { CartProduct } from '../models/CartProduct';
 import { CartSumContext } from '../context/CartSumContext';
 import { decrement, increment, decrementByAmount, reset } from '../store/counterSlice'
 import { useAppDispatch } from '../store/store';
+import { calculateCartSum } from '../util/calculations';
 
 const backendUrl = import.meta.env.VITE_API_HOST;
 
@@ -56,18 +57,20 @@ function Cart() {
     dispatch(increment());
   }
 
-  function calculateCartSum() {
-    let sum = 0;
-    cartProducts.forEach(cp => sum += cp.product.price * cp.quantity);
-    return sum;
-  }
+  // function calculateCartSum() {
+  //   let sum = 0;
+  //   cartProducts.forEach(cp => sum += cp.product.price * cp.quantity);
+  //   return sum;
+  // }
+
 
   function order() {
-    fetch(`${backendUrl}/orders?personId=1`, {
+    fetch(`${backendUrl}/orders`, {
       method: "POST",
       body: JSON.stringify(cartProducts),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + sessionStorage.getItem("token")
       }
     })
       .then(res => res.json())
@@ -99,7 +102,7 @@ function Cart() {
           </div>
         )}
 
-        <div>Kogusumma: {calculateCartSum().toFixed(2)}</div>
+        <div>Kogusumma: {calculateCartSum(cartProducts).toFixed(2)}</div>
         <button onClick={order}>Telli</button>
       </> : 
       <>

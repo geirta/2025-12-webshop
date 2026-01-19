@@ -1,11 +1,12 @@
 import { useState, type ReactNode } from "react";
 import { CartSumContext } from "./CartSumContext";
 import type { CartProduct } from "../models/CartProduct";
+import { calculateCartSum } from "../util/calculations";
 
 // provider abil määran, milline component saab kätte
 export const CartSumContextProvider = ({children}: {children: ReactNode}) => {
   
-  const [sum, setSum] = useState(calculateCartSum());
+  const [sum, setSum] = useState(getCartSum());
 
   function decreaseSum(amount: number) {
     setSum(sum - amount);
@@ -19,11 +20,12 @@ export const CartSumContextProvider = ({children}: {children: ReactNode}) => {
     setSum(0);
   }
 
-  function calculateCartSum() {
+  function getCartSum() {
     const cart: CartProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
-    let sum = 0;
-    cart.forEach(cp => sum += cp.product.price * cp.quantity);
-    return sum;
+    // let sum = 0;
+    // cart.forEach(cp => sum += cp.product.price * cp.quantity);
+    // return sum;
+    return calculateCartSum(cart);
   }
 
   return (

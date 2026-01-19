@@ -1,12 +1,62 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { AuthContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
+import type { Person } from "../models/Person";
+
+const backendUrl = import.meta.env.VITE_API_HOST;
 
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
   
-  const [isLoggedIn, setLoggedIn] = useState(sessionStorage.getItem("login") !== null);
+  const personObject: Person = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      personalCode: "",
+      phone: "",
+      role: "CUSTOMER",
+      address: {
+          city: "",
+          state: "",
+          country: "",
+          zipcode: "",
+          street: "",
+          number: "",
+          complement: ""
+      }
+  }
+  const [isLoggedIn, setLoggedIn] = useState(sessionStorage.getItem("token") !== null);
+  const [person, setPerson] = useState<Person>(personObject);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("token")){
+      return;
+    }
+    fetch(backendUrl + "/profile", {
+      headers: {
+        "Authorization": "Bearer " + sessionStorage.getItem("token")
+      }
+    })
+    .then(res => res.json())
+    .then(json => setPerson(json));
+  }, [isLoggedIn]);
+
+  const handleLogin = (token: string) => {
+      sessionStorage.setItem("token", token);
+      setLoggedIn(true);
+      navigate("/profile")
+  };
+
+  const handleLogout = () => {
+      sessionStorage.removeItem("token");
+      setLoggedIn(false);
+      setPerson(personObject);
+      navigate("/")
+  };
 
   return (
-    <AuthContext.Provider value={{isLoggedIn, setLoggedIn}}>
+    <AuthContext.Provider value={{person, isLoggedIn, handleLogin, handleLogout}}>
       {children}
     </AuthContext.Provider>
   )

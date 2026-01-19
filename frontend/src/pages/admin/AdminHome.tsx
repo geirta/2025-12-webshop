@@ -8,8 +8,14 @@ function AdminHome() {
 
   return (
     <div>
+      <Link to="/admin/add-products">
+        <button>Lisa tooteid</button>
+      </Link>
       <Link to="/admin/manage-products">
         <button>Halda tooteid</button>
+      </Link>
+      <Link to="/admin/manage-categories">
+        <button>Halda kategooriaid</button>
       </Link>
     </div>
   )

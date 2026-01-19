@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import type { Product } from "../../models/Product";
+import { useFetch } from "../../hooks/useFetch";
 
-const backendUrl = import.meta.env.VITE_API_HOST;
+// const backendUrl = import.meta.env.VITE_API_HOST;
 
 function ProductManage() {
 
-  const [products, setProducts] = useState<Product[]>([])
+  // const [products, setProducts] = useState<Product[]>([])
 
-  useEffect(() => {
-    fetch(`${backendUrl}/admin-products`)
-      .then(res => res.json())
-      .then(json => setProducts(json))
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${backendUrl}/admin-products`)
+  //     .then(res => res.json())
+  //     .then(json => setProducts(json))
+  // }, []);
+
+  const products = useFetch<Product>({endpoint: "admin-products"});
 
   return (
     <div className='container'>
         <h2 className='text-center'>List of Products</h2>
-        <Link to="/admin/add-product">
-          <button className='btn btn-primary mb-2'>Add Product</button>
-        </Link>
         <table className='table table-striped table-bordered'>
           <thead className='table-success'>
             <tr>

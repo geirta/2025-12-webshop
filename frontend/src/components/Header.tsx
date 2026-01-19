@@ -13,17 +13,14 @@ const Header = () => {
     const { t, i18n } = useTranslation();
     const {sum} = useContext(CartSumContext);
     const {isLoggedIn} = useContext(AuthContext);
-    const {setLoggedIn} = useContext(AuthContext);
     const count = useAppSelector(state => state.counter.value)
+    const {handleLogout} = useContext(AuthContext);
+    const {handleLogin} = useContext(AuthContext);
+    const {person} = useContext(AuthContext);
 
     function updateLanguage(newLang: string) {
         i18n.changeLanguage(newLang);
         localStorage.setItem("language", newLang);
-    }
-
-    function logOut() {
-        sessionStorage.removeItem("login");
-        setLoggedIn(false);
     }
 
     return (
@@ -40,12 +37,20 @@ const Header = () => {
                                 <li className='nav-item'>
                                     <Link className='nav-link' aria-current="page" to="/products">{t('header.products')}</Link>
                                 </li>
-                                <li className='nav-item'>
-                                    <Link className='nav-link' to="/persons">{t('header.persons')}</Link>
-                                </li>
-                                <li className='nav-item'>
-                                    <Link className='nav-link' to="/admin">Admin</Link>
-                                </li>
+                                {isLoggedIn && (
+                                    <>
+                                        <li className='nav-item'>
+                                            <Link className='nav-link' to="/persons">{t('header.persons')}</Link>
+                                        </li>
+                                        <li className='nav-item'>
+                                            <Link className='nav-link' to="/admin">Admin</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className='nav-link' to="/my-orders">My orders</Link>
+                                        </li>
+                                    </>
+                                )}
+                                
                             </ul>
                         </div>
 
@@ -57,10 +62,10 @@ const Header = () => {
                                 {isLoggedIn && (
                                 <>
                                     <li className="nav-item">
-                                        <Link className='nav-link' to="/my-orders">My orders</Link>
+                                        <div>Hi, {person.firstName}</div>
                                     </li>
                                     <li className="nav-item">
-                                        <Link onClick={logOut} className='nav-link' to="/">Logout</Link>
+                                        <button className='nav-link' onClick={handleLogout}>Logout</button>
                                     </li>
                                 </>
                                 )}
@@ -68,6 +73,9 @@ const Header = () => {
                                 <>
                                     <li className="nav-item">
                                         <Link className='nav-link' to="/login">Login</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className='nav-link' to="/signup">Signup</Link>
                                     </li>
                                 </>
                                 )}

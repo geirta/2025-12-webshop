@@ -1,20 +1,23 @@
-import {useEffect, useState} from 'react'
-import type { Person } from '../models/Person'
+//import {useEffect, useState} from 'react'
+import type { Person } from '../../models/Person'
 import { useNavigate } from 'react-router-dom'
+import { useFetch } from '../../hooks/useFetch';
 
-const backendUrl = import.meta.env.VITE_API_HOST;
+// const backendUrl = import.meta.env.VITE_API_HOST;
 
 const Persons = () => {
 
-    const [persons, setPersons] = useState<Person[]>([])
+    // const [persons, setPersons] = useState<Person[]>([])
+    
+    // useEffect(() => {
+    //     fetch(`${backendUrl}/persons`)
+    //     .then(res => res.json())
+    //     .then(json => setPersons(json))
+    // }, []);
+    
+    const persons = useFetch<Person>({endpoint: "persons"});
+    
     const navigator = useNavigate();
-
-    useEffect(() => {
-        fetch(`${backendUrl}/persons`)
-            .then(res => res.json())
-            .then(json => setPersons(json))
-    }, []);
-
     function viewPerson(id: number) {
         navigator(`/persons/${id}`);
     }

@@ -1,27 +1,20 @@
 
-
-// KOJU: Login ---> contexti muutuja trueks
-// Header.tsx ---> loeb Contexti muutujat ja kuvab/peidab midagi
-// Header.tsx ---> võimaldab muuta Contexti muutuja false-ks
-
-// localStorage-sse array-na:
-// Rendipoes võetud filmid (enne Start-Rentalisse backi saatmist)
-
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const backendUrl = import.meta.env.VITE_API_HOST;
 
-function Login() {
+function Signup() {
   
-  const {handleLogin} = useContext(AuthContext);
+  // const {handleLogin} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-
-  function logIn() {
+  function signUp() {
     //sessionStorage.setItem('token', JSON.stringify({email: email}));
-    fetch(backendUrl + "/login", {
+    fetch(backendUrl + "/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -30,10 +23,8 @@ function Login() {
     })
     .then(res => res.json())
     .then(json => {
-      if (json.token) {
-        handleLogin(json.token);
-        setEmail("");
-        setPassword("");
+      if (json.id) {
+        navigate("/login")
         return;
       }
       alert(json.message);
@@ -50,9 +41,9 @@ function Login() {
         <label>Password</label>
         <input value={password} onChange={e => setPassword(e.target.value)} type="password" />
       </div>
-      <button onClick={logIn}>Login</button>
+      <button onClick={signUp}>Signup</button>
     </div>
   )
 }
 
-export default Login
+export default Signup

@@ -2,22 +2,15 @@ package ee.geir.webshop.controller;
 
 import ee.geir.webshop.entity.Order;
 import ee.geir.webshop.entity.OrderRow;
-import ee.geir.webshop.entity.Person;
-import ee.geir.webshop.entity.Product;
 import ee.geir.webshop.model.OrderPaid;
 import ee.geir.webshop.model.ParcelMachine;
 import ee.geir.webshop.model.PaymentLink;
-import ee.geir.webshop.model.Supplier3Response;
 import ee.geir.webshop.repository.OrderRepository;
-import ee.geir.webshop.repository.PersonRepository;
-import ee.geir.webshop.repository.ProductRepository;
 import ee.geir.webshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -27,13 +20,23 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private OrderRepository orderRepository;
+
     @GetMapping("orders")
     public List<Order> getOrders() {
         return orderService.getAllOrders();
     }
 
+    @GetMapping("person-orders")
+    public List<Order> getPersonOrders() {
+        Long id = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+        return orderRepository.findByPerson_Id(id);
+    }
+
     @PostMapping("orders")
-    public PaymentLink addOrder(@RequestParam Long personId, @RequestBody List<OrderRow> orderRows) { // TODO: personId authist
+    public PaymentLink addOrder(@RequestBody List<OrderRow> orderRows) {
+        Long personId = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         return orderService.pay(personId, orderRows);
     }
 

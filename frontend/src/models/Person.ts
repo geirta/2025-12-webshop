@@ -8,5 +8,6 @@ export type Person = {
   password: string;
   phone: string;
   personalCode: string;
+  role: "CUSTOMER" | "ADMIN" | "SUPERADMIN";
   address: Address;
 };

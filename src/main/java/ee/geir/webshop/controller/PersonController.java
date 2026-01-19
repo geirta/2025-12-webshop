@@ -3,13 +3,16 @@ package ee.geir.webshop.controller;
 import ee.geir.webshop.dto.PersonLoginDto;
 import ee.geir.webshop.dto.PersonPublicDto;
 import ee.geir.webshop.dto.PersonUpdateDto;
+import ee.geir.webshop.dto.PersonUpdateRecordDto;
 import ee.geir.webshop.entity.Person;
+import ee.geir.webshop.entity.PersonRole;
 import ee.geir.webshop.model.AuthToken;
 import ee.geir.webshop.repository.PersonRepository;
 import ee.geir.webshop.security.JwtService;
 import ee.geir.webshop.service.PersonService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,14 +55,17 @@ public class PersonController {
         return List.of(mapper.map(personRepository.findAll(), PersonPublicDto[].class));
     }
 
-    @GetMapping("persons/{id}")
-    public Person getPerson(@PathVariable Long id) {
-        return personRepository.findById(id).get();
+
+    @GetMapping("profile")
+    public Person getPersonDetails() {
+        Long id = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+        return personRepository.findById(id).orElseThrow();
     }
 
     @PostMapping("signup")
     public Person signup(@RequestBody Person person) {
         personService.validate(person);
+        // TODO: !!!! person.setRole(PersonRole.CUSTOMER);
         return personRepository.save(person);
     }
 
@@ -76,8 +82,12 @@ public class PersonController {
         return jwtService.getToken(dbPerson);
     }
 
-    @PatchMapping("persons/{id}")
-    public Person updatePerson(@PathVariable Long id, @RequestBody PersonUpdateDto dto) {
+    // PATCH:  soovituslik kasutada 1 välja muutmise puhul
+    // PATCH:  admin -> customer -> admin
+    @PutMapping("persons")
+    public Person updatePerson(@RequestBody PersonUpdateRecordDto dto) {
+        Long id = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+        // TODO: !!!! iseenda rolli ei tohiks muuta
         return personService.updatePerson(id, dto);
     }
 

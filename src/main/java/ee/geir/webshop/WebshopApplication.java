@@ -21,10 +21,10 @@ public class WebshopApplication {
     // 9.E 05.01 - 13.00 Pagination, @Autowired. custom hook. tellimus backendi
     //10.N 08.01 - 13.00 RestTemplate - teistelt rakendustelt andmeid (pakiautomaatid), Makse.
     //11.E 12.01 - 13.00 auth -> paneme API otspunktid kinni - auth tunnusega sisse
-    //12.N 15.01 - 13.00 auth -> JWT token
-    //13.E 19.01 - 13.00 auth -> front-endis kinni (ei saa teatud URL-dele ja nuppe näha)
-    //14.N 22.01 - 13.00 auth -> rollid
-    //15.E 26.01 - 13.00 MINU tellimused, profiil
+    //12.N 15.01 - 13.00 auth -> JWT token, MINU tellimused, profiil
+    //13.E 19.01 - 13.00 auth -> front-endis kinni (ei saa teatud URL-dele ja nuppe näha),  rollid
+    //14.N 22.01 - 13.00 rollid, auth parandused, aegumine, CRON, WebSocket
+    //15.E 26.01 - 13.00
     //16.N 29.01 - 13.00 cache, emaili saamine, CRON
     //17.E 02.02 - 13.00 serverisse ülespanek
     //18 lõpuprojekti päev
