@@ -92,7 +92,6 @@ public class PersonController {
         if (dbPerson == null) {
             throw new RuntimeException("Email not found");
         }
-        if (!dbPerson.getPassword().equals(personLoginDto.getPassword())) {
 //        if (!dbPerson.getPassword().equals(personLoginDto.getPassword())) {
         if (!passwordEncoder.matches(personLoginDto.getPassword(), dbPerson.getPassword())) {
             throw new RuntimeException("Password not correct");
