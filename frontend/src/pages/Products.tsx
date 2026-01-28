@@ -112,7 +112,7 @@ const Products = () => {
                                 <td>{product.price}</td>
                                 <td>{product.stock}</td>
                                 <td>{product.active.toString()}</td>
-                                <td>{product.category.name}</td>
+                                <td>{product.category?.name}</td>
                                 <td><button onClick={() => addToCart(product)} className="btn btn-warning">Add to cart</button></td>
                                 <td>
                                     <Link to={`/product/${product.id}`}>

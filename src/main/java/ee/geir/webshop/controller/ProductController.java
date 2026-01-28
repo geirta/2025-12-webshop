@@ -2,19 +2,24 @@ package ee.geir.webshop.controller;
 
 import ee.geir.webshop.entity.Product;
 import ee.geir.webshop.repository.ProductRepository;
+import ee.geir.webshop.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:1234")
+//@CrossOrigin(origins = "http://localhost:1234")  -- pole enam vaja, sai paika pandud SecurityConfigis
 public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CacheService cacheService;
 
 
     // muutsin List -> Page
@@ -42,13 +47,15 @@ public class ProductController {
     @DeleteMapping("products/{id}")
     public List<Product> deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
+        cacheService.deleteFromCache(id);
         return productRepository.findAll();
     }
 
     @GetMapping("products/{id}")
-    public Product getProduct(@PathVariable Long id) {
-        return productRepository.findById(id).get();
-        //return productRepository.findById(id).orElseThrow();    ALTERNATIIV
+    public Product getProduct(@PathVariable Long id) throws ExecutionException {
+        //return productRepository.findById(id).get();      ALTERNATIIV
+        //return productRepository.findById(id).orElseThrow();
+        return cacheService.getProduct(id);     // CACHE NÄIDE
     }
 
     // @RequestParam -->  kui on 2 või rohkem parameetrit
@@ -63,6 +70,7 @@ public class ProductController {
             throw new RuntimeException("Cannot update product without id");
         }
         productRepository.save(product);
+        cacheService.updateCache(product.getId(),  product);
         return productRepository.findAll();
     }
 }

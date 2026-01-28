@@ -1,7 +1,7 @@
 import type { Address } from "./Address"
 
 export type Person = {
-  id?: number;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;

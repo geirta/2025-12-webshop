@@ -31,7 +31,7 @@ function Login() {
     .then(res => res.json())
     .then(json => {
       if (json.token) {
-        handleLogin(json.token);
+        handleLogin(json.token, json.expires);
         setEmail("");
         setPassword("");
         return;

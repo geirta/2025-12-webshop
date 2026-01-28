@@ -10,6 +10,6 @@ export const AuthContext = createContext({
       phone: "",
       role: "CUSTOMER"
   },
-  handleLogin: (token: string) => {console.log(token)},
+  handleLogin: (token: string, expires: number) => {console.log(token); console.log(expires)},
   handleLogout: () => {}
 });

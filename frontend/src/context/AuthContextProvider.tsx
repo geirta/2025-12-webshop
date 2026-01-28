@@ -42,14 +42,16 @@ export const AuthContextProvider = ({children}: {children: ReactNode}) => {
     .then(json => setPerson(json));
   }, [isLoggedIn]);
 
-  const handleLogin = (token: string) => {
+  const handleLogin = (token: string, expires: number) => {
       sessionStorage.setItem("token", token);
+      sessionStorage.setItem("expires", expires.toString());
       setLoggedIn(true);
       navigate("/profile")
   };
 
   const handleLogout = () => {
       sessionStorage.removeItem("token");
+      sessionStorage.removeItem("expires");
       setLoggedIn(false);
       setPerson(personObject);
       navigate("/")

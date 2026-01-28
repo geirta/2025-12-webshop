@@ -39,12 +39,17 @@ const Header = () => {
                                 </li>
                                 {isLoggedIn && (
                                     <>
-                                        <li className='nav-item'>
-                                            <Link className='nav-link' to="/persons">{t('header.persons')}</Link>
-                                        </li>
-                                        <li className='nav-item'>
-                                            <Link className='nav-link' to="/admin">Admin</Link>
-                                        </li>
+                                        {person.role === "SUPERADMIN" && 
+                                            <li className='nav-item'>
+                                              <Link className='nav-link' to="/persons">{t('header.persons')}</Link>
+                                          </li>
+                                        }
+                                        {(person.role === "ADMIN" || person.role === "SUPERADMIN") && 
+                                            <li className='nav-item'>
+                                                <Link className='nav-link' to="/admin">Admin</Link>
+                                            </li>
+                                        }
+                                        
                                         <li className="nav-item">
                                             <Link className='nav-link' to="/my-orders">My orders</Link>
                                         </li>

@@ -1,13 +1,14 @@
 
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Home from './pages/Home'
-import PersonDetails from './pages/PersonDetails'
+import PersonDetails from './pages/admin/PersonDetails'
 import Products from './pages/Products'
 import Persons from './pages/admin/Persons'
 import MyOrders from './pages/MyOrders'
+import Profile from './pages/Profile'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
 import ProductDetails from './pages/ProductDetails'
@@ -44,12 +45,12 @@ function App() {
           <Route path='/payment' element={<CheckPayment/>}></Route>
 
           <Route element={<RequireAuth/>}>
-            <Route path='/profile' element={<PersonDetails/>}></Route>
+            <Route path='/profile' element={<Profile />}></Route>
             <Route path='/my-orders' element={<MyOrders/>}></Route>
+            <Route path='/persons/:id' element={<PersonDetails/>}></Route>
           </Route>
           
           <Route path='/persons' element={<Persons/>}></Route>
-          <Route path='/persons/:id' element={<PersonDetails/>}></Route>
           <Route path='/admin' element={<AdminHome />}></Route>
           <Route path='/admin/manage-categories' element={<CategoriesManage />}></Route>
           <Route path='/admin/persons' element={<Persons/>}></Route>

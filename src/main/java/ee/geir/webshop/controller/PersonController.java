@@ -2,7 +2,6 @@ package ee.geir.webshop.controller;
 
 import ee.geir.webshop.dto.PersonLoginDto;
 import ee.geir.webshop.dto.PersonPublicDto;
-import ee.geir.webshop.dto.PersonUpdateDto;
 import ee.geir.webshop.dto.PersonUpdateRecordDto;
 import ee.geir.webshop.entity.Person;
 import ee.geir.webshop.entity.PersonRole;
@@ -12,13 +11,17 @@ import ee.geir.webshop.security.JwtService;
 import ee.geir.webshop.service.PersonService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:1234")
+// @CrossOrigin(origins = "http://localhost:1234")   -- pole enam vaja, sai paika pandud SecurityConfigis
 public class PersonController {
 
     @Autowired
@@ -33,9 +36,12 @@ public class PersonController {
     @Autowired
     private JwtService jwtService;
 
+    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+
     @GetMapping("persons")
     public List<Person> getPersons() {
-        return personRepository.findAll();
+        return personRepository.findAllByOrderByIdAsc();
     }
 
     @GetMapping("persons-public")
@@ -55,17 +61,28 @@ public class PersonController {
         return List.of(mapper.map(personRepository.findAll(), PersonPublicDto[].class));
     }
 
-
     @GetMapping("profile")
     public Person getPersonDetails() {
         Long id = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         return personRepository.findById(id).orElseThrow();
     }
 
+    // 1. kord v6tab, siis paneb cache-i, aga v6tab andmebaasist
+    // 2. kord v6tab, siis v6tab cache-st
+    @Cacheable(value = "userCache", key = "#id")
+    @GetMapping("persons/{id}")
+    public Person getPersonDetails(@PathVariable Long id) {
+        return personRepository.findById(id).orElseThrow();
+    }
+
     @PostMapping("signup")
     public Person signup(@RequestBody Person person) {
         personService.validate(person);
-        // TODO: !!!! person.setRole(PersonRole.CUSTOMER);
+// PÄRIS RAKENDUSES: person.setRole(PersonRole.CUSTOMER);
+        if (person.getRole() == null) {
+            person.setRole(PersonRole.CUSTOMER);
+        }
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
         return personRepository.save(person);
     }
 
@@ -76,6 +93,8 @@ public class PersonController {
             throw new RuntimeException("Email not found");
         }
         if (!dbPerson.getPassword().equals(personLoginDto.getPassword())) {
+//        if (!dbPerson.getPassword().equals(personLoginDto.getPassword())) {
+        if (!passwordEncoder.matches(personLoginDto.getPassword(), dbPerson.getPassword())) {
             throw new RuntimeException("Password not correct");
         }
 
@@ -84,11 +103,25 @@ public class PersonController {
 
     // PATCH:  soovituslik kasutada 1 välja muutmise puhul
     // PATCH:  admin -> customer -> admin
+    // CachePut - iga p2ring updateb cache-i
+    @CachePut(value = "userCache", key = "#result.id")
     @PutMapping("persons")
     public Person updatePerson(@RequestBody PersonUpdateRecordDto dto) {
         Long id = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
-        // TODO: !!!! iseenda rolli ei tohiks muuta
+// PÄRIS RAKENDUSES: iseenda rolli ei tohiks muuta
         return personService.updatePerson(id, dto);
     }
 
+    @CacheEvict(value = "userCache", key = "#personId")
+    @PatchMapping("change-admin")
+    public List<Person> changeAdmin(@RequestParam Long personId) {
+        Person dbPerson = personRepository.findById(personId).orElseThrow();
+        if (dbPerson.getRole() == PersonRole.ADMIN) {
+            dbPerson.setRole(PersonRole.CUSTOMER);
+        } else {
+            dbPerson.setRole(PersonRole.ADMIN);
+        }
+        personRepository.save(dbPerson);
+        return personRepository.findAllByOrderByIdAsc();
+    }
 }

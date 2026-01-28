@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom"
 
 const backendUrl = import.meta.env.VITE_API_HOST;
 
+// frontis payment
+// localhost:1234/payment?payment_reference=
 function CheckPayment() {
 
   // useParams() :id      useSearchParams ?payment_reference
@@ -13,7 +15,12 @@ function CheckPayment() {
   const payment_reference = searchParams.get("payment_reference");
 
   useEffect(() => {
-    fetch(backendUrl + `/check-payment?orderReference=${order_reference}&paymentReference=${payment_reference}`)
+    if(!sessionStorage.getItem("token")) return;
+    fetch(backendUrl + `/check-payment?orderReference=${order_reference}&paymentReference=${payment_reference}`, {
+      headers: {
+        "Authorization": "Bearer " + sessionStorage.getItem("token")
+      }
+    })
       .then(res => res.json())
       .then(json => {
         setIsPaid(json.paid);

@@ -9,4 +9,7 @@ import java.util.Optional;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Person findByEmailIgnoreCase(String email);
+
+    List<Person> findAllByOrderByIdAsc();
+
 }

@@ -2,8 +2,12 @@ package ee.geir.webshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
+@EnableCaching
 public class WebshopApplication {
 
 	public static void main(String[] args) {
@@ -23,10 +27,11 @@ public class WebshopApplication {
     //11.E 12.01 - 13.00 auth -> paneme API otspunktid kinni - auth tunnusega sisse
     //12.N 15.01 - 13.00 auth -> JWT token, MINU tellimused, profiil
     //13.E 19.01 - 13.00 auth -> front-endis kinni (ei saa teatud URL-dele ja nuppe näha),  rollid
-    //14.N 22.01 - 13.00 rollid, auth parandused, aegumine, CRON, WebSocket
-    //15.E 26.01 - 13.00
-    //16.N 29.01 - 13.00 cache, emaili saamine, CRON
-    //17.E 02.02 - 13.00 serverisse ülespanek
-    //18 lõpuprojekti päev
+    //14.N 22.01 - 13.00 rollid, auth parandused, aegumine
+    //15.E 26.01 - 13.00 CRON, cache (Google Guava, Redis), pw crypting, emaili saamine
+    //16.E 02.02 - 13.00 docker, serverisse ülespanek
+	// render.com või AWS või Oracle trial
+    //17.E 09.02 - 13.00 WebSocket
+    //18.K 18.02 - 13.00-14.30  lõpuprojekti päev
 
 }

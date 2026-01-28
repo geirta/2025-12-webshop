@@ -11,7 +11,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@CrossOrigin(origins = "http://localhost:1234")
+// @CrossOrigin(origins = "http://localhost:1234")  -- pole enam vaja, sai paika pandud SecurityConfigis
 public class CategoryController {
 
     @Autowired

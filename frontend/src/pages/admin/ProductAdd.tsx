@@ -1,13 +1,13 @@
 import { useState } from "react";
 import type { Category } from "../../models/Category";
 import { useFetch } from "../../hooks/useFetch";
-import type { ProductAdd } from "../../models/ProductAdd";
+import type { ProductCreate } from "../../models/ProductCreate";
 
 const backendUrl = import.meta.env.VITE_API_HOST;
 
 function ProductAdd() {
 
-  const emptyProduct: ProductAdd = {
+  const emptyProduct: ProductCreate = {
     name: "",
     description: "",
     price: 0,
@@ -16,7 +16,7 @@ function ProductAdd() {
     category: null
   };
 
-  const [product, setProduct] = useState<ProductAdd>(emptyProduct);
+  const [product, setProduct] = useState<ProductCreate>(emptyProduct);
 
   const categories = useFetch<Category>({endpoint: "categories"});
 

@@ -7,5 +7,5 @@ import java.util.Date;
 @Data
 public class AuthToken {
     private String token;
-    private Date expires;
+    private Long expires;
 }

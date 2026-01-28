@@ -125,6 +125,6 @@ class PersonServiceTest {
         p1.setPersonalCode("43909040262");
         p1.setPhone("555123123");
         p1.setAddress(new Address());
-        when(personRepository.findByEmailIgnoreCase(p1.getEmail())).thenReturn(Optional.of(p1));
+        when(personRepository.findByEmailIgnoreCase(p1.getEmail())).thenReturn(p1);
     }
 }

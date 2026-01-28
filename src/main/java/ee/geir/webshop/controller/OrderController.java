@@ -12,9 +12,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:1234")
+// @CrossOrigin(origins = "http://localhost:1234")  -- pole enam vaja, sai paika pandud SecurityConfigis
 public class OrderController {
 
     @Autowired
@@ -35,7 +36,7 @@ public class OrderController {
     }
 
     @PostMapping("orders")
-    public PaymentLink addOrder(@RequestBody List<OrderRow> orderRows) {
+    public PaymentLink addOrder(@RequestBody List<OrderRow> orderRows) throws ExecutionException {
         Long personId = Long.parseLong(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         return orderService.pay(personId, orderRows);
     }

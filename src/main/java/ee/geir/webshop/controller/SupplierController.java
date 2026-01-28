@@ -16,7 +16,7 @@ import java.util.List;
 // v6tame hankija API endpoindilt enda rakendusse k6ik tooted
 
 @RestController
-@CrossOrigin(origins = "http://localhost:1234")
+// @CrossOrigin(origins = "http://localhost:1234")   -- pole enam vaja, sai paika pandud SecurityConfigis
 public class SupplierController {
 
     @Autowired
